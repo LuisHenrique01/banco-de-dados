@@ -38,7 +38,7 @@ FUNCIONARIO += "(%d, %d,'%d-%d-%d','%s');\n\n"%(30, r(1500, 8000),r(1935, 2002),
                                                             composto=[True, False][r(0,1)],
                                                             femininos=femininos, masculinos=masculinos))
 
-RESERVA = """insert into REVERVA(cod_reserva, cod_func, cod_hosp, num, dt_prev_entrada, dt_prev_saida)
+RESERVA = """insert into RESERVA(cod_RESERVA, cod_func, cod_hosp, num, dt_prev_entrada, dt_prev_saida)
 values 
 """
 
@@ -56,15 +56,15 @@ for i in range(1, 1000):
         ent = dataR.isoformat()
         sai = GERAR_DATA(dataR)
         num = r(1, 45)
-        RESERVA += f"({i}, {r(1, 31)}, {cod_hosp}, {num}, , '{ent}', '{sai}'),\n"
-        HOSPEDAGEM += f"({i}, {r(1, 31)}, {cod_hosp}, {num}, , '{ent}', '{sai}'),\n"
+        RESERVA += f"({i}, {r(1, 30)}, {cod_hosp}, {num}, '{ent}', '{sai}'),\n"
+        HOSPEDAGEM += f"({i}, {r(1, 30)}, {cod_hosp}, {num}, '{ent}', '{sai}'),\n"
     else:
-        RESERVA += f"({i}, {r(1, 31)}, {r(1, 500)}, {r(1, 45)}, , '{dataR.isoformat()}', '{GERAR_DATA(dataR)}'),\n"
-        HOSPEDAGEM += f"({i}, {r(1, 31)}, {r(1, 500)}, {r(1, 45)}, , '{dataH.isoformat()}', '{GERAR_DATA(dataH)}'),\n"
+        RESERVA += f"({i}, {r(1, 30)}, {r(1, 500)}, {r(1, 45)}, '{dataR.isoformat()}', '{GERAR_DATA(dataR)}'),\n"
+        HOSPEDAGEM += f"({i}, {r(1, 30)}, {r(1, 500)}, {r(1, 45)}, '{dataH.isoformat()}', '{GERAR_DATA(dataH)}'),\n"
 dataR = date(r(2018, 2019), r(1, 12), r(1, 28))
 dataH = date(r(2018, 2019), r(1, 12), r(1, 28))
-RESERVA += f"(1000, {r(1, 31)}, {r(1, 500)}, {r(1, 45)}, , '{dataR.isoformat()}', '{GERAR_DATA(dataR)}'),\n"
-HOSPEDAGEM += f"(1000, {r(1, 31)}, {r(1, 500)}, {r(1, 45)}, , '{dataH.isoformat()}', '{GERAR_DATA(dataH)}'),\n"
+RESERVA += f"(1000, {r(1, 30)}, {r(1, 500)}, {r(1, 45)}, '{dataR.isoformat()}', '{GERAR_DATA(dataR)}');\n"
+HOSPEDAGEM += f"(1000, {r(1, 30)}, {r(1, 500)}, {r(1, 45)}, '{dataH.isoformat()}', '{GERAR_DATA(dataH)}');\n"
 
 
 
