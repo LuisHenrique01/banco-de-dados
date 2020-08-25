@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-engine = create_engine('postgresql+psycopg2://postgres:241002@localhost:5432/hotel')   
+engine = create_engine('postgresql+psycopg2://*SeuUsuario*:*SuaSenha*@localhost:5432/*SeuBanco*')   
 
 from random import randint as r
 update = """"""
